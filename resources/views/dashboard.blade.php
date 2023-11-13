@@ -1,7 +1,12 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
-	<!-- START PRIMERA FILA --> 
+<script src="../../assets/chart/highcharts.js"></script>
+<script src="../../assets/chart/exporting.js"></script>
+<script src="../../assets/chart/export-data.js"></script>
+<script src="../../assets/chart/accessibility.js"></script>
+
+	<!-- START PRIMERA FILA -->
     <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
@@ -17,8 +22,8 @@
                             </div>
                         </div>
                         <div class="col-4 text-end">
-                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                                <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                            <div class="icon icon-shape bg-gradient-info shadow text-center border-radius-md">
+                                <i class="fa fa-calendar text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -39,7 +44,7 @@
                             </div>
                         </div>
                         <div class="col-4 text-end">
-                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                            <div class="icon icon-shape bg-gradient-info shadow text-center border-radius-md">
                                 <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
@@ -61,7 +66,7 @@
                             </div>
                         </div>
                         <div class="col-4 text-end">
-                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                            <div class="icon icon-shape bg-gradient-info shadow text-center border-radius-md">
                                 <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
@@ -83,7 +88,7 @@
                             </div>
                         </div>
                         <div class="col-4 text-end">
-                            <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                            <div class="icon icon-shape bg-gradient-info shadow text-center border-radius-md">
                                 <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
                             </div>
                         </div>
@@ -94,25 +99,68 @@
     </div>
 	<!-- START SEGUNDA FILA --> 
     <div class="row mt-4">
-        <div class="col-lg-12 mb-lg-0 mb-4">
+        <div class="col-lg-07 mb-lg-0 mb-4">
             <div class="card">
                 <div class="card-body p-3">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="d-flex flex-column h-100">
-                                <p class="mb-1 pt-2 text-bold">Desarrolado Por:</p>
-                                <h5 class="font-weight-bolder">Soft UI Dashboard</h5>
-                                <p class="mb-5">From colors, cards, typography to complex elements, you will find the full
-                                    documentation.</p>
-                                <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto"
-                                    href="javascript:;">
-                                    Read More
-                                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                                </a>
+                                <p class="mb-1 pt-2 text-bold">Área de Gráfico</p>
+								<div class="ct-chart" id="container"></div>
                             </div>
                         </div>
+						<script type="text/javascript">
+							Highcharts.chart('container', {
+								chart: {
+									type: 'column'
+								},
+								title: {
+									text: 'Codigo de prueba',
+									align: 'left'
+								},
+								subtitle: {
+									text:
+										'Datos de: <a target="_blank" ' +
+										'href="">por generar la consulta</a>',
+									align: 'left'
+								},
+								xAxis: {
+									categories: ['USA', 'China', 'Brazil', 'EU', 'India', 'Russia'],
+									crosshair: true,
+									accessibility: {
+										description: 'Countries'
+									}
+								},
+								yAxis: {
+									min: 0,
+									title: {
+										text: '1000 metric tons (MT)'
+									}
+								},
+								tooltip: {
+									valueSuffix: ' (1000 MT)'
+								},
+								plotOptions: {
+									column: {
+										pointPadding: 0.2,
+										borderWidth: 0
+									}
+								},
+								series: [
+									{
+										name: 'Corn',
+										data: [406292, 260000, 107000, 68300, 27500, 14500]
+									},
+									{
+										name: 'Wheat',
+										data: [51086, 136000, 5500, 141000, 107180, 77000]
+									}
+								]
+							});
+					
+						</script>
                         <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
-                            <div class="bg-gradient-primary border-radius-lg h-100">
+                            <div class="bg-gradient-info border-radius-lg h-100">
                                 <img src="../assets/img/shapes/waves-white.svg"
                                     class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
                                 <div class="position-relative d-flex align-items-center justify-content-center h-100">
@@ -159,7 +207,7 @@
                             <div class="col-3 py-3 ps-0">
                                 <div class="d-flex mb-2">
                                     <div
-                                        class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-primary text-center me-2 d-flex align-items-center justify-content-center">
+                                        class="icon icon-shape icon-xxs shadow border-radius-sm bg-gradient-info text-center me-2 d-flex align-items-center justify-content-center">
                                         <svg width="10px" height="10px" viewBox="0 0 40 44" version="1.1"
                                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                             <title>document</title>

@@ -58,10 +58,10 @@ class ViajesReales extends Conexion {
 
 
 
-// Crear una instancia de ViajesReales
+// Crear una instancia 
 $viajes = new ViajesReales();
 
-// Llamar al método imprimirDatos
+// Llamar al método para imprimir
 $viajes->imprimirDatos();
 
 
